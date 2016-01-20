@@ -10,7 +10,6 @@ curl_setopt($ch, CURLOPT_NOBODY, true);
 //curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
     
 $response = curl_exec($ch);
-curl_close($ch);
 
 require 'head_results.php';
 
