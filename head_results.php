@@ -3,7 +3,11 @@
 echo 'original url: ', $url;
 echo "<hr>";
 require 'check_curl_error.php';
-echo '<textarea style="width: 100%; height: 70%">', htmlspecialchars($response, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'), '</textarea>';
+echo '<textarea style="width: 100%; height: 50%">', htmlspecialchars($response, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'), '</textarea>';
+
+require 'get_header.php';
+$h=get_header($response, 'Accept-Ranges');
+if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $h, '</span>', '<hr>';
 
 ?>
 <form action="" method=post>

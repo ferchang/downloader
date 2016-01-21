@@ -11,9 +11,8 @@ if($body_action==='show' or $body_action==='show8save') echo "\n\n", htmlspecial
 echo '</textarea>';
 
 require 'get_header.php';
-
-$h=get_header($header, 'Transfer-Encoding');
-if($h!==false) echo '<hr>', $h, '<hr>';
+$h=get_header($response, 'Accept-Ranges');
+if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $h, '</span>', '<hr>';
 
 if($body_action==='save' or $body_action==='show8save') file_put_contents('body', $body);
 
