@@ -13,7 +13,7 @@ if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $
 <form action="" method=post>
 URL: <input type=text name=url value="<?php echo $url; ?>">
 HEAD request: <input type=checkbox name=head value=head>
-Range: <input type=text name=length value="0" size=7 style='text-align: center'>-<input type=text name=length value="All" size=7 style='text-align: center'>
+Range: <input type=text name=range_from value="0" size=7 style='text-align: center'>-<input type=text name=range_to value="All" size=7 style='text-align: center'>
 Response body:
 <select name=body_action>
 <option value=save>Save to file
