@@ -22,6 +22,6 @@ if(!isset($_SESSION['auth'])) {
 
 if(isset($_POST['head'])) include 'process_head.php';
 else if(isset($_POST['get'])) include 'process_get.php';
-else include 'head_form.php';
+else include 'form.php';
 
 ?>

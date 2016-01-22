@@ -11,10 +11,7 @@ $writefn=function($ch, $chunk) {
   
   if(!$GLOBALS['header_size']) {
 	$tmp=strpos($GLOBALS['data'], "\r\n\r\n");
-	if($tmp) {
-		$GLOBALS['header_size']=$tmp+4;
-		echo "header_size: {$GLOBALS['header_size']}<br>";
-	}
+	if($tmp) $GLOBALS['header_size']=$tmp+4;
   }
   else {
 	$limit=$GLOBALS['range_to']+1;

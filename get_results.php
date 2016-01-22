@@ -18,4 +18,6 @@ if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $
 
 if($body_action==='save' or $body_action==='show8save') file_put_contents('downloads/body', $body);
 
+require 'form.php';
+
 ?>

@@ -13,16 +13,6 @@ if($h!==false) {
 }
 else $_SESSION['range_support']=false;
 
+require 'form.php';
+
 ?>
-<form action="" method=post>
-URL: <input type=text name=url value="<?php echo $url; ?>">
-HEAD request: <input type=checkbox name=head value=head>
-Range: <input type=text name=range_from value="0" size=7 style='text-align: center'>-<input type=text name=range_to value="All" size=7 style='text-align: center'>
-Response body:
-<select name=body_action>
-<option value=save>Save to file
-<option value=show>Show
-<option value=show8save>Show and save
-</select>
-<input type=submit value=Submit name=get>
-</form>
