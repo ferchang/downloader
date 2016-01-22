@@ -5,14 +5,24 @@
 
 $data='';
 
+$header_size=0;
+
 $writefn=function($ch, $chunk) {
   
-  $limit=$GLOBALS['range_to']+1;
-
-  $len=strlen($GLOBALS['data'])+strlen($chunk);
-  if($len>=$limit) {
-    $GLOBALS['data'].=substr($chunk, 0, $limit-strlen($GLOBALS['data']));
-    return -1;
+  if(!$GLOBALS['header_size']) {
+	$tmp=strpos($GLOBALS['data'], "\r\n\r\n");
+	if($tmp) {
+		$GLOBALS['header_size']=$tmp+4;
+		echo "header_size: {$GLOBALS['header_size']}<br>";
+	}
+  }
+  else {
+	$limit=$GLOBALS['range_to']+1;
+	$len=strlen($GLOBALS['data'])-$GLOBALS['header_size']+strlen($chunk);
+	if($len>=$limit) {
+		$GLOBALS['data'].=$chunk;
+		return -1;
+	}
   }
 
   $GLOBALS['data'].=$chunk;

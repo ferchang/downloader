@@ -16,7 +16,9 @@ if($use_range) require 'range.php';
     
 $response=curl_exec($ch);
 
-if(isset($data)) $response=$data;
+if(isset($data)) {
+	$response=substr($data, 0, $GLOBALS['header_size']+$range_to+1);
+}
 
 require 'get_results.php';
 
