@@ -14,7 +14,9 @@ curl_setopt($ch, CURLOPT_HEADER, true);
 
 if($use_range) require 'range.php';
     
-$response = curl_exec($ch);
+$response=curl_exec($ch);
+
+if(isset($data)) $response=$data;
 
 require 'get_results.php';
 

@@ -7,7 +7,11 @@ echo '<textarea style="width: 100%; height: 50%">', htmlspecialchars($response, 
 
 require 'get_header.php';
 $h=get_header($response, 'Accept-Ranges');
-if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $h, '</span>', '<hr>';
+if($h!==false) {
+	echo '<hr>', '<span style="background: green; color: yellow">', $h, '</span>', '<hr>';
+	$_SESSION['range_support']=true;
+}
+else $_SESSION['range_support']=false;
 
 ?>
 <form action="" method=post>
