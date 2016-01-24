@@ -2,7 +2,7 @@
 if(ini_get('register_globals')) exit("<center><h3>Error: Turn that damned register globals off!</h3></center>");
 define('CAN_INCLUDE', true);
 
-require ROOT.'include/common.php';
+require 'include/common.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
