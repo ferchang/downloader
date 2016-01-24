@@ -6,14 +6,14 @@ if(isset($_POST['password'])) {
 	require ROOT.'include/func_crypt_random.php';
 	require ROOT.'include/class_bcrypt.php';	
 	$bcrypt=new Bcrypt(12);
-	$hash=file_get_contents('password.txt');
+	require 'password.php';
 	if($bcrypt->verify($_POST['password'], $hash)) $_SESSION['auth']=true;
 	else echo '<span style="color: red">Entered password was wrong!</span><br><br>';
 }
 
 if(!isset($_SESSION['auth'])) {
-	if(!file_exists('password.txt')) {
-		echo 'password.txt not found<br>';
+	if(!file_exists('password.php')) {
+		echo 'password.php not found<br>';
 		echo 'first <a href=gen_pass_hash.php>create a password</a>';
 		exit;
 	}

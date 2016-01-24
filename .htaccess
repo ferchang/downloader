@@ -1,3 +1,6 @@
-<Files "password*.txt">
+<Files "password.php">
+Deny from all
+</Files>
+<Files "password0.php">
 Deny from all
 </Files>
