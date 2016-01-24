@@ -4,6 +4,6 @@ if(!defined('CAN_INCLUDE')) exit("<center><h3>Error: Direct access denied!</h3><
 ?>
 
 <form method=post action=''>
-Password: <input type=text name=password>
+Password: <input type=password name=password>
 <input type=submit value=Login>
 </form>
