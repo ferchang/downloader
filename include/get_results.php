@@ -11,7 +11,7 @@ require ROOT.'include/check_curl_error.php';
 list($header, $body)=explode("\r\n\r\n", $response, 2);
 
 echo '<textarea style="width: 100%; height: 70%">', htmlspecialchars($header, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8');
-if($body_action==='show' or $body_action==='show8save') echo "\n\n", htmlspecialchars($body, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8');
+if($body_action==='show' or $body_action==='show8save') echo "\n\n", substr(htmlspecialchars($body, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'), 0, $max_body_2show);
 echo '</textarea>';
 
 require ROOT.'include/get_header.php';

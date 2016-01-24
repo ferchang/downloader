@@ -14,4 +14,6 @@ header("Cache-Control: private, no-store, no-cache, must-revalidate, post-check=
 header('Pragma: private');
 header("Pragma: no-cache");
 
+$max_body_2show=50000;//bytes (after applying htmlspecialchars)
+
 ?>
