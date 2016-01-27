@@ -6,4 +6,10 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_ENCODING , "");
 
+if(isset($_SESSION['proxy'])) {
+	$proxy=$_SESSION['proxy']['host'].':'.$_SESSION['proxy']['port'];
+	curl_setopt($ch, CURLOPT_PROXY, $proxy);
+	if($_SESSION['proxy']['kind']==='socks') curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
+}
+
 ?>
