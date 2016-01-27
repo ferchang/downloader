@@ -1,6 +1,9 @@
+php_flag register_globals 0
+
 <Files "password.php">
 Deny from all
 </Files>
 <Files "password0.php">
 Deny from all
 </Files>
+
