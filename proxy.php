@@ -27,6 +27,10 @@ if(isset($_POST['host'])) {
 	exit;
 }
 
+if(isset($_SESSION['proxy'])) {
+	echo "<b>Current proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']} ({$_SESSION['proxy']['kind']})</span><hr>";
+}
+
 ?>
 
 <form action="" method=post>
