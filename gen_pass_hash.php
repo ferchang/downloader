@@ -25,7 +25,7 @@ if(isset($_POST['password'])) {
 	echo '<br><br>Just put the above in a file named password.php';
 	file_put_contents('password0.php', $output);
 	echo '<br>or<br>Rename password0.php to password.php';
-	echo '<br><center><a href=index.php>Home</a></center>';
+	require ROOT.'include/home_link.php';
 	exit;
 }
 

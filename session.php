@@ -16,6 +16,6 @@ echo '<table align="center" cellpadding="10" style="border: thin solid #000"><tr
 print_r($_SESSION);
 echo '</pre><br><center><form style="margin-bottom: 0px" method="post" action=""><input type="submit" name="destroy" value="Destroy session"></form></center></td></tr></table>';
 
-echo '<br><center><a href="index.php">Home</a></center>';
+require ROOT.'include/home_link.php';
 
 ?>

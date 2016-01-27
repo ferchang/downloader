@@ -23,7 +23,8 @@ if(isset($_POST['host'])) {
 			$msg='<span style="color: green"><b>Proxy is set</b></span>';
 		}
 	}
-	echo "<center>$msg<br><br><a href=index.php>Home</a>";
+	echo "<center>$msg</center>";
+	require ROOT.'include/home_link.php';
 	exit;
 }
 
