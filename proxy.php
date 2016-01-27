@@ -44,3 +44,4 @@ Proxy kind:
 </select>
 <input type=submit value=Set>&nbsp;&nbsp;<input type=submit value='Unset' name=unset>
 </form>
+<?php require ROOT.'include/home_link.php'; ?>

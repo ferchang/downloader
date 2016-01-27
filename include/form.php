@@ -28,3 +28,4 @@ Response body:
 <script>
 if($('#head_chk').is(':checked')) $('#response_body_option').hide();
 </script>
+<?php require ROOT.'include/home_link.php'; ?>
