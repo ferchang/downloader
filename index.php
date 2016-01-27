@@ -13,5 +13,6 @@ if(isset($hash) and $hash==='') echo '<center><span style="color: red;">Warning:
 <br><br><br><br>
 <a href=download.php>Download</a><br><br>
 <a href=proxy.php>Set/unset proxy</a><br><br>
-<a href=view_downloads.php>View downloads</a>
+<a href=view_downloads.php>View downloads</a><br><br>
+<a href=session.php>View session</a>
 </center>
