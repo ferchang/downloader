@@ -6,7 +6,7 @@ require 'include/common.php';
 
 require ROOT.'include/auth.php';
 
-if($hash==='') echo '<center><span style="color: red;">Warning: system is without password!</span></center>';
+if(isset($hash) and $hash==='') echo '<center><span style="color: red;">Warning: system is without password!</span></center>';
 
 ?>
 <center>
