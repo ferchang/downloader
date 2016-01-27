@@ -12,11 +12,16 @@ if(isset($_POST['host'])) {
 		$msg='<span style="color: blue"><b>Proxy is unset</b></span>';
 	}
 	else {
-		$proxy['host']=$_POST['host'];
-		$proxy['port']=$_POST['port'];
-		$proxy['kind']=$_POST['kind'];
-		$_SESSION['proxy']=$proxy;
-		$msg='<span style="color: green"><b>Proxy is set</b></span>';
+		if($_POST['host']==='' or $_POST['port']==='') {
+			$msg='<span style="color: red"><b>Error: Host or Port empty!</b></span>';
+		}
+		else {
+			$proxy['host']=$_POST['host'];
+			$proxy['port']=$_POST['port'];
+			$proxy['kind']=$_POST['kind'];
+			$_SESSION['proxy']=$proxy;
+			$msg='<span style="color: green"><b>Proxy is set</b></span>';
+		}
 	}
 	echo "<center>$msg<br><br><a href=index.php>Home</a>";
 	exit;
