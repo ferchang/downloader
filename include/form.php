@@ -24,6 +24,11 @@ Response body:
 </select>
 </span>
 <input type=submit value=Submit name=get>
+<?php
+if(isset($_SESSION['proxy'])) {
+	echo "&nbsp;( <b>Via proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']} ({$_SESSION['proxy']['kind']})</span> )";
+}
+?>
 </form>
 <script>
 if($('#head_chk').is(':checked')) $('#response_body_option').hide();
