@@ -17,8 +17,12 @@ if(!isset($_SESSION['auth'])) {
 		echo 'first <a href=gen_pass_hash.php>create a password</a>';
 		exit;
 	}
-	require ROOT.'include/login_form.php';
-	exit;
+	else {
+		require 'password.php';
+		if($hash==='') return;
+		require ROOT.'include/login_form.php';
+		exit;
+	}
 }
 
 ?>

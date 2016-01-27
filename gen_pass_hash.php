@@ -13,10 +13,13 @@ if(file_exists('password.php')) {
 }
 
 if(isset($_POST['password'])) {
-	require ROOT.'include/func_crypt_random.php';
-	require ROOT.'include/class_bcrypt.php';	
-	$bcrypt=new Bcrypt(12);
-	$hash=$bcrypt->hash($_POST['password']);
+	if($_POST['password']!=='') {
+		require ROOT.'include/func_crypt_random.php';
+		require ROOT.'include/class_bcrypt.php';	
+		$bcrypt=new Bcrypt(12);
+		$hash=$bcrypt->hash($_POST['password']);
+	}
+	else $hash='';
 	$output="<?php\nif(ini_get('register_globals')) exit('<center><h3>Error: Turn that damned register globals off!</h3></center>');\nif(!defined('CAN_INCLUDE')) exit('<center><h3>Error: Direct access denied!</h3></center>');\n\n\$hash='$hash';\n\n?>";
 	echo '<textarea onclick="this.select();" style="vertical-align: top; width: 95%" rows=7>', htmlspecialchars($output, ENT_QUOTES, 'UTF-8'), '</textarea>';
 	echo '<br><br>Just put the above in a file named password.php';
@@ -28,5 +31,6 @@ if(isset($_POST['password'])) {
 
 ?>
 <form action='' method=post>
+Enter empty password for no password.<br><br>
 Password: <input type=text name=password autocomplete="off"><input type=submit value=submit>
 </form>
