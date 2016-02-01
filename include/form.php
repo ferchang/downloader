@@ -26,7 +26,9 @@ Response body:
 <input type=submit value=Submit name=get>
 <?php
 if(isset($_SESSION['proxy'])) {
-	echo "&nbsp;( <b>Via proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']} ({$_SESSION['proxy']['kind']})</span> )";
+	echo "&nbsp;( <b>Via proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']}";
+	if(isset($_SESSION['proxy']['https_port'])) echo '<span style="color: #000">/</span>', $_SESSION['proxy']['https_port'];
+	echo " ({$_SESSION['proxy']['kind']})</span> )";
 }
 ?>
 </form>

@@ -18,6 +18,7 @@ if(isset($_POST['host'])) {
 		else {
 			$proxy['host']=$_POST['host'];
 			$proxy['port']=$_POST['port'];
+			if($_POST['https_port']!=='') $proxy['https_port']=$_POST['https_port'];
 			$proxy['kind']=$_POST['kind'];
 			$_SESSION['proxy']=$proxy;
 			$msg='<span style="color: green"><b>Proxy is set</b></span>';
@@ -29,7 +30,9 @@ if(isset($_POST['host'])) {
 }
 
 if(isset($_SESSION['proxy'])) {
-	echo "<b>Current proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']} ({$_SESSION['proxy']['kind']})</span><hr>";
+	echo "<b>Current proxy:</b> <span style='color: blue'>{$_SESSION['proxy']['host']}:{$_SESSION['proxy']['port']}";
+	if(isset($_SESSION['proxy']['https_port'])) echo '<span style="color: #000">/</span>', $_SESSION['proxy']['https_port'];
+	echo " ({$_SESSION['proxy']['kind']})</span><hr>";
 }
 
 ?>
@@ -43,5 +46,6 @@ Proxy kind:
 <option value=socks>SOCKS
 </select>
 <input type=submit value=Set>&nbsp;&nbsp;<input type=submit value='Unset' name=unset>
+<br><br>Port for HTTPS Requests: <input type=text name=https_port value="" size=6> (Leave empty if same as HTTP Requests)
 </form>
 <?php require ROOT.'include/home_link.php'; ?>
