@@ -18,6 +18,8 @@ if(!empty($_POST)) {
 		unlink("downloads/$key");
 		unlink("downloads/$key.info");
 	}
+	header('Location: view_downloads.php');
+	exit;
 }
 
 echo '<center><form method=post action="">';
