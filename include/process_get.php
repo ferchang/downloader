@@ -15,6 +15,8 @@ if(isset($data)) {
 	$response=substr($data, 0, $GLOBALS['header_size']+$range_to+1);
 }
 
+//if($over_size) echo 'Xz';
+
 require ROOT.'include/get_results.php';
 
 ?>
