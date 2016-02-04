@@ -4,7 +4,7 @@ if(!defined('CAN_INCLUDE')) exit("<center><h3>Error: Direct access denied!</h3><
 
 $body_action=$_POST['body_action'];
 
-if($over_size) echo 'Response body oversize - <span style="color: blue">Truncated</span>&nbsp;&nbsp;&nbsp;&nbsp;';
+if(!empty($over_size)) echo 'Response body oversize - <span style="color: blue">Truncated</span>&nbsp;&nbsp;&nbsp;&nbsp;';
 
 echo 'Original url: ', $url;
 echo "<hr>";
@@ -18,7 +18,16 @@ echo '</textarea>';
 
 require ROOT.'include/show_important_headers.php';
 
-if($body_action==='save' or $body_action==='show8save') file_put_contents('downloads/body', $body);
+if($body_action==='save' or $body_action==='show8save') {
+	require_once ROOT.'include/func_crypt_random.php';
+	$filename=random_string(22);
+	file_put_contents("downloads/$filename", $body);
+	$info="url: $url\n";
+	$info.="range: $range_from-$range_to\n";
+	$info.="size: ".strlen($body)."\n";
+	$info.="proxy: $proxy\n";
+	file_put_contents("downloads/$filename.info", $info);
+}
 
 require ROOT.'include/form.php';
 

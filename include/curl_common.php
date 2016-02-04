@@ -12,6 +12,6 @@ if(isset($_SESSION['proxy'])) {
 	//echo "<br>proxy: $proxy<br>";
 	curl_setopt($ch, CURLOPT_PROXY, $proxy);
 	if($_SESSION['proxy']['kind']==='socks') curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-}
+} else $proxy='';
 
 ?>
