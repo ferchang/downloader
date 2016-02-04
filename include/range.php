@@ -9,6 +9,6 @@ if(strtolower($range_to)!=='all') $range.=$range_to;
 
 curl_setopt($ch, CURLOPT_RANGE, $range);
 
-if(!$_SESSION['range_support'] and !isset($head_request)) require ROOT.'include/curl_write_function.php';
+require ROOT.'include/curl_write_function.php';
 
 ?>

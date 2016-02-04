@@ -17,6 +17,7 @@ $writefn=function($ch, $chunk) {
 	$limit=$GLOBALS['range_to']+1;
 	$len=strlen($GLOBALS['data'])-$GLOBALS['header_size']+strlen($chunk);
 	if($len>=$limit) {
+		//$chunk=substr($chunk, 0, strlen($chunk)-($len-$limit));
 		$GLOBALS['data'].=$chunk;
 		return -1;
 	}
