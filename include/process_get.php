@@ -12,10 +12,12 @@ require ROOT.'include/range.php';
 $response=curl_exec($ch);
 
 if(isset($data)) {
-	$response=substr($data, 0, $GLOBALS['header_size']+$range_to+1);
+	if($over_size) {
+		$response=substr($data, 0, $header_size);
+		$response.=substr($data, $header_size+$range_from, $range_to-$range_from+1);
+	}
+	else $response=$data;
 }
-
-//if($over_size) echo 'Xz';
 
 require ROOT.'include/get_results.php';
 
