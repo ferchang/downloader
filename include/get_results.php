@@ -14,9 +14,7 @@ echo '<textarea style="width: 100%; height: 70%">', htmlspecialchars($header, EN
 if($body_action==='show' or $body_action==='show8save') echo "\n\n", substr(htmlspecialchars($body, ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8'), 0, $max_body_2show);
 echo '</textarea>';
 
-require ROOT.'include/get_header.php';
-$h=get_header($response, 'Accept-Ranges');
-if($h!==false) echo '<hr>', '<span style="background: green; color: yellow">', $h, '</span>', '<hr>';
+require ROOT.'include/show_important_headers.php';
 
 if($body_action==='save' or $body_action==='show8save') file_put_contents('downloads/body', $body);
 
