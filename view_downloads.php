@@ -21,4 +21,6 @@ foreach($arr as $name) {
 
 echo '</table>';
 
+require ROOT.'include/home_link.php';
+
 ?>
