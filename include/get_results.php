@@ -4,7 +4,9 @@ if(!defined('CAN_INCLUDE')) exit("<center><h3>Error: Direct access denied!</h3><
 
 $body_action=$_POST['body_action'];
 
-echo 'original url: ', $url;
+if($over_size) echo 'Response body oversize - <span style="color: blue">Truncated</span>&nbsp;&nbsp;&nbsp;&nbsp;';
+
+echo 'Original url: ', $url;
 echo "<hr>";
 require ROOT.'include/check_curl_error.php';
 
